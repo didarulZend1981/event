@@ -41,6 +41,14 @@ class UsersController extends Controller{
 
     }
 
+    public function getUser(Request $request, $id){
+        $users = User::findOrFail($id);
+        return response()->json($users);
+    }
+
+
+
+
 
 
 

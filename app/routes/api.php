@@ -21,3 +21,4 @@ Route::get('/healthcheck', function(){
 Route::get('/users', [UsersController::class, 'getUsers']);
 // create user:
 Route::post('/create-user', [UsersController::class, 'createUser']);
+Route::get('/user/{id}', [UsersController::class, 'getUser']);
