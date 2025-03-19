@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,11 @@ Route::get('/user', function (Request $request) {
 Route::get('/healthcheck', function(){
     return response()->json(['message' => 'API is working!']);
 });
+
+
+/****************
+ * Users
+ * **********
+ */
+// get all users:
+Route::get('/users', [UsersController::class, 'getUsers']);
