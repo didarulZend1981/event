@@ -19,3 +19,5 @@ Route::get('/healthcheck', function(){
  */
 // get all users:
 Route::get('/users', [UsersController::class, 'getUsers']);
+// create user:
+Route::post('/create-user', [UsersController::class, 'createUser']);
