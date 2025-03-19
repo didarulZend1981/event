@@ -47,7 +47,19 @@ class UsersController extends Controller{
     }
 
 
+    public function updateUser(Request $request, $id){
+        $request->validate([
+            'role' => 'required',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+        ]);
 
+        $user = User::findOrFail($id);
+
+        $user->update($request->all());
+
+        return response()->json(['message' => 'update success', 'data' => $user]);
+    }
 
 
 
