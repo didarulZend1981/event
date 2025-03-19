@@ -61,6 +61,14 @@ class UsersController extends Controller{
         return response()->json(['message' => 'update success', 'data' => $user]);
     }
 
+    public function deleteUser($id){
+        // dd($id);
+        User::destroy($id);
+        return response()->json(['message' => 'delete success', 'data' => '']);
+    }
+
+
+
 
 
 
