@@ -15,6 +15,8 @@ Route::get('/healthcheck', function(){
 
 
 Route::post('/member-registration', [AuthController::class, 'memberRegistration']);
+Route::post('/login', [AuthController::class, 'login']);
+
 
 /****************
  * Users

@@ -61,6 +61,38 @@ class AuthController extends Controller
     }
 
 
+    public function login(Request $request) {
+        $validation = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if($validation->fails()){
+            return response()->json([
+                'status'=> false,
+                'message'=> 'validation error',
+                'errors'=> $validation->errors()
+            ], 400);
+        }
+
+        $user = User::where('email', $request->email)->first();
+        if(!$user || !Hash::check($request->password, $user->password)){
+            return response()->json([
+                'status'=> false,
+                'message'=> 'Credentials do not match',
+            ], 400);
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'status'=> true,
+            'message'=> 'Login successfull',
+            'data'=> $user,
+            'token'=> $token
+        ], 200);
+
+    }
 
 
 
