@@ -53,16 +53,12 @@ class UsersController extends Controller{
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
         ]);
-
         $user = User::findOrFail($id);
-
         $user->update($request->all());
-
         return response()->json(['message' => 'update success', 'data' => $user]);
     }
 
     public function deleteUser($id){
-        // dd($id);
         User::destroy($id);
         return response()->json(['message' => 'delete success', 'data' => '']);
     }
