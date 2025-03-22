@@ -50,8 +50,37 @@ class EventsController extends Controller
         return response()->json(['message' => 'update success', 'data'=> new EventResource($event)]);
     }
 
+    public function createEvent(Request $request){
+        // dd($request->role);
+        $request->validate([
+            'title' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
 
-    
+        ]);
+
+
+        $event = Event::create([
+            'title' => $request->title,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'ticket_price' => $request->ticket_price,
+            'descriptions' => $request->descriptions,
+
+        ]);
+
+
+        return response()->json([
+            'status'=> true,
+            'message'=> 'Event insert  successfull',
+            'data'=> new EventResource($event),
+
+        ], 200);
+
+    }
+
+
+
 
 
 
