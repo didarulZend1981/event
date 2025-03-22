@@ -16,6 +16,7 @@ Route::get('/healthcheck', function(){
 
 Route::post('/member-registration', [AuthController::class, 'memberRegistration']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 
 /****************
