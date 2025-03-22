@@ -17,7 +17,7 @@ Route::get('/healthcheck', function(){
 Route::post('/member-registration', [AuthController::class, 'memberRegistration']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-
+Route::get('/user/{id}', [AuthController::class, 'user'])->middleware('auth:sanctum');
 
 /****************
  * Users
@@ -27,6 +27,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::get('/users', [UsersController::class, 'getUsers']);
 // create user:
 Route::post('/create-user', [UsersController::class, 'createUser']);
-Route::get('/user/{id}', [UsersController::class, 'getUser']);
+// Route::get('/user/{id}', [UsersController::class, 'getUser']);
 Route::put('/update-user/{id}', [UsersController::class, 'updateUser']);
 Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
