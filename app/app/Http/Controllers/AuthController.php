@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -54,7 +54,7 @@ class AuthController extends Controller
         return response()->json([
             'status'=> true,
             'message'=> 'Registration successfull',
-
+            'data'=> new UserResource($user),
             'token'=> $token
         ], 200);
 
@@ -88,7 +88,7 @@ class AuthController extends Controller
         return response()->json([
             'status'=> true,
             'message'=> 'Login successfull',
-            'data'=> $user,
+            'data'=> new UserResource($user),
             'token'=> $token
         ], 200);
 
@@ -108,7 +108,7 @@ class AuthController extends Controller
         return response()->json([
             'status'=> true,
             'message'=> 'User fetched successfully',
-            'data'=> $user
+            'data'=> new UserResource($user),
         ], 200);
     }
 
