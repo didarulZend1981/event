@@ -38,4 +38,5 @@ Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
  */
 
  Route::get('/events', [EventsController::class, 'events']);
+ Route::get('/event/{event}', [EventsController::class, 'getEvent']);
 
