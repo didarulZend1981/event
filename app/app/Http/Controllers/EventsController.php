@@ -80,7 +80,10 @@ class EventsController extends Controller
     }
 
 
-
+    public function deleteEvent($id){
+        Event::destroy($id);
+        return response()->json(['message' => 'delete success', 'data' => '']);
+    }
 
 
 

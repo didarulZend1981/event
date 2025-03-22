@@ -41,3 +41,4 @@ Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
  Route::get('/event/{event}', [EventsController::class, 'getEvent']);
  Route::put('/event/update/{id}', [EventsController::class, 'updateEvent']);
  Route::post('/event', [EventsController::class, 'createEvent']);
+ Route::delete('/delete-event/{id}', [EventsController::class, 'deleteEvent']);
