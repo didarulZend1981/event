@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,11 @@ Route::post('/create-user', [UsersController::class, 'createUser']);
 // Route::get('/user/{id}', [UsersController::class, 'getUser']);
 Route::put('/update-user/{id}', [UsersController::class, 'updateUser']);
 Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
+//=====
+/****************
+ * Events
+ * **********
+ */
+
+ Route::get('/events', [EventsController::class, 'events']);
+
