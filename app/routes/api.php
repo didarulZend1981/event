@@ -50,3 +50,4 @@ Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
 Route::get('/bookings', [BookingsController::class, 'getAllbookings']);
 Route::get('/booking/{id}', [BookingsController::class, 'getBooking']);
 Route::put('/booking/update/{id}', [BookingsController::class, 'updateBooking']);
+Route::post('/member-event-booking', [BookingsController::class, 'store']);
