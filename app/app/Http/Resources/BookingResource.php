@@ -21,6 +21,8 @@ class BookingResource extends JsonResource
             'ticket_price' => $this->ticket_price,
             'total_price' => $this->total_price,
             'status' => $this->status,
+            'user' => new UserResource($this->whenLoaded('user')),
+            'event' => new EventResource($this->whenLoaded('event')),
         ];
     }
 }

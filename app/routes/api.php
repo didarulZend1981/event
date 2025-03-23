@@ -48,3 +48,4 @@ Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
  * **********
  */
 Route::get('/bookings', [BookingsController::class, 'getAllbookings']);
+Route::get('/booking/{id}', [BookingsController::class, 'getBooking']);
