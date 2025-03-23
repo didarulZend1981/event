@@ -72,6 +72,10 @@ class BookingsController extends Controller
         ], 200);
     }
 
+    public function getMemberbookings(Request $request){
+        $bookings = Booking::with(['user', 'event'])->where('user_id', $request->id)->get();
+        return response()->json(['message'=> 'Data found', 'data'=> $bookings]);
+    }
 
 
 
