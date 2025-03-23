@@ -12,4 +12,8 @@ class User extends  Authenticatable
 {
     use HasApiTokens, Notifiable, HasFactory;
     protected $fillable = ['role', 'name', 'email', 'password', 'profile_image'];
+    public function bookings(){
+        return $this->hasMany(Booking::class);
+    }
+
 }

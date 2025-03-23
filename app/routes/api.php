@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
@@ -42,3 +43,8 @@ Route::delete('/delete-user/{id}', [UsersController::class, 'deleteUser']);
  Route::put('/event/update/{id}', [EventsController::class, 'updateEvent']);
  Route::post('/event', [EventsController::class, 'createEvent']);
  Route::delete('/delete-event/{id}', [EventsController::class, 'deleteEvent']);
+/****************
+ * Bookings
+ * **********
+ */
+Route::get('/bookings', [BookingsController::class, 'getAllbookings']);
