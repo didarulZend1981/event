@@ -1,20 +1,14 @@
 <template>
-  <div class="container py-3">
-    <Navbar />
-
-    <main>
-      <router-view />
-    </main>
-    <Footer />
-      
-  </div>
+  <router-view />
 </template>
 
 <script setup>
-import Navbar from '@/views/Navbar.vue'
-import Footer from '@/views/Footer.vue';
+
+
+
 
 </script>
+
 
 <style scoped>
 </style>

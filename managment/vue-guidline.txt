@@ -1,0 +1,133 @@
+npm create vite@latest two-layout -- --template vue
+cd two-layout
+npm install
+npm run dev
+
+
+npm install vue-router@4
+
+🧬 2. Project Folder Structure
+	src/
+	├── layouts/
+	│   	├── FrontendLayout.vue
+	│   	└── AdminLayout.vue
+	├── pages/
+	│   ├── Home.vue
+	│   ├── About.vue
+	│   └── admin/
+	│       ├── Dashboard.vue
+	│       └── Settings.vue
+	├── router/
+	│   └── index.js
+	├── App.vue
+	└── main.js
+🎨 3. Create Layouts
+layouts/FrontendLayout.vue
+<template>
+  <div>
+    <header><h1>Frontend Header</h1></header>
+    <main><router-view /></main>
+    <footer>Frontend Footer</footer>
+  </div>
+</template>
+layouts/AdminLayout.vue
+<template>
+  <div>
+    <nav>Admin Sidebar</nav>
+    <section><router-view /></section>
+  </div>
+</template>
+
+
+📄 4. Create Pages
+pages/Home.vue
+<template>
+  <div>
+    <h2>Home Page</h2>
+  </div>
+</template>
+pages/About.vue
+<template>
+  <div>
+    <h2>About Page</h2>
+  </div>
+</template>
+
+pages/admin/Dashboard.vue
+<template>
+  <div>
+    <h2>Admin Dashboard</h2>
+  </div>
+</template>
+
+pages/admin/Settings.vue
+<template>
+  <div>
+    <h2>Admin Settings</h2>
+  </div>
+</template>
+
+🛣️ 5. Set Up Router
+router/index.js
+
+import { createRouter, createWebHistory } from 'vue-router'
+
+import FrontendLayout from '../layouts/FrontendLayout.vue'
+import AdminLayout from '../layouts/AdminLayout.vue'
+
+import Home from '../pages/Home.vue'
+import About from '../pages/About.vue'
+import Dashboard from '../pages/admin/Dashboard.vue'
+import Settings from '../pages/admin/Settings.vue'
+
+const routes = [
+  {
+    path: '/',
+    component: FrontendLayout,
+    children: [
+      { path: '', name: 'Home', component: Home },
+      { path: 'about', name: 'About', component: About }
+    ]
+  },
+  {
+    path: '/admin',
+    component: AdminLayout,
+    children: [
+      { path: '', name: 'Dashboard', component: Dashboard },
+      { path: 'settings', name: 'Settings', component: Settings }
+    ]
+  }
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router
+
+
+🚪 6. Main Entry Setup
+main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
+
+
+App.vue
+<template>
+  <router-view />
+</template>
+
+Run It
+npm run dev
+
+
+
+
+
+
